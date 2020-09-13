@@ -79,7 +79,7 @@ let Text2Order(string letter)
 	
 }
 
-string C2M(string m,string c)
+string C2M(string m,string c,int mode)
 {
 	
 	string k = "";
@@ -108,7 +108,21 @@ string C2M(string m,string c)
 		int mo = letm.ind;
 		int co = letc.ind;
 		
-		int len = co - mo;
+		int len;
+		
+		if(mode == 2){
+			
+			len = co - mo;	
+			
+		}else if(mode == 1){
+			
+			len = co + mo;
+			
+		}else if(mode == 3){
+			
+			len = mo - co;
+			
+		}
 		
 //		cout<<"Mo:"<<mo<<" Co:"<<co<<" Len:"<<len<<endl;
 		
@@ -130,13 +144,13 @@ int main()
 	int mode;
 	cin>>mode;
 	
-	
+	cout<<"Now put text:";
 	
 	string m;
 	string c;
 	cin>>m>>c;
 	
-	cout<<"k="<<C2M(m,c);
+	cout<<"Result:"<<C2M(m,c,mode);
 	
 //	int order;
 //	cin>>order;
