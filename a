@@ -1,0 +1,93 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	
+	int cm;
+	int cn;
+	
+	cout<<"Line:";
+	cin>>cm;
+	
+	cout<<"Raw:";
+	cin>>cn;
+	
+	int map[cm][cn];
+	
+	//
+	// @ = -1
+	// . = 0
+	// # = 1
+	// * = 2
+	//
+	
+	for(int i = 0;i < cm;i++){
+		
+		cout<<"Line."<<i + 1<<" : ";
+		string str;
+		cin>>str;
+		
+		while(str.length() != cn){
+			
+			cout<<"Input Error, retry:";
+			cin>>str;
+			
+		}
+		
+		string a;
+		stringstream as;
+		
+		for(int j = 0;j < str.length();j++){
+			
+			char ch = str[j];
+			switch(ch){
+				
+				case '@': {
+					
+					map[i][j] = -1;
+					break;
+				}
+				case '.': {
+					
+					map[i][j] = 0; 
+					break;
+				}
+				case '#': {
+					
+					map[i][j] = 1; 
+					break;
+				}
+				case '*': {
+					
+					map[i][j] = 2; 
+					break;
+				}
+				default: {
+				
+					cout<<"error";
+				
+				}
+				
+			}
+			
+			cout<<map[i][j];
+			
+//			string mapnum;
+//			as<<map[i][j];
+//			as>>mapnum;
+//			a = a + " " + mapnum;
+			
+		}
+		
+		cout<<endl;
+		cout<<"OK [ "<<a<<" ]"<<endl;
+		
+	}
+	
+	
+	
+	return 0;
+	
+}
+
