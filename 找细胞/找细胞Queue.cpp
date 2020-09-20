@@ -139,7 +139,7 @@ int main()
 	time(&t);
     int end = t;
 	
-	cout<<"总计数量:"<<num<<" 耗时:"<<end - start<<"ms";
+	cout<<"总计数量:"<<num<<" 耗时: "<<end - start<<"ms";
 	
 	return 0;
 	
