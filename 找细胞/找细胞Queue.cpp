@@ -116,6 +116,10 @@ int main()
 	
 	cout<<"======================="<<endl;
 	
+	time_t t;
+    time(&t);
+    int start = t;
+	
 	for(int i = 0;i < n;i++)
 	{
 		
@@ -132,11 +136,11 @@ int main()
 		
 	}
 	
+	time(&t);
+    int end = t;
 	
-	
-	cout<<"Number:"<<num;
+	cout<<"总计数量:"<<num<<" 耗时:"<<end - start<<"ms";
 	
 	return 0;
 	
 }
-
