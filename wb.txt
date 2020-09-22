@@ -3,3 +3,5 @@ https://www.cnblogs.com/E-Dreamer-Blogs/p/12184698.html cpp二进制与整数之
 http://www.mamicode.com/info-detail-2719904.html CPP常用库函数以及STL
 
 https://www.coursera.org/learn/suanfa-jichu/home/welcome 算法基础 | Coursera
+
+https://blog.csdn.net/u013309870/article/details/75193592 算法-动态规划 Dynamic Programming--从菜鸟到老鸟_有图有真相-CSDN博客
