@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+
+using namespace std; 
+ 
+int map1[1000][1000];  
+int line; 
+int * totalTarget; 
+ 
+int main(){  
+  
+	cout<<"Map Line:"; 
+	cin>>line;    
+	
+	//Read Map
+	for(int i = 0;i < line;i++)
+	{
+		
+		for(int j = 0;j < i;j++)
+		{
+			
+			cin>>map1[i][j];
+			
+		}
+		
+	}
+	
+	totalTarget = map1[line];
+	
+	for(int i = line - 1;i > 1;--i)
+	{
+		
+		for(int j = 0;j < i;++j)
+		{
+			
+			totalTarget[j] = max(totalTarget[j],totalTarget[j+1]) + map1[i][j];    
+
+		}
+		
+	}
+	
+	cout<<"Result:"<<totalTarget[1]<<endl;  
+	
+}
