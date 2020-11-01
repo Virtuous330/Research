@@ -1,72 +1,37 @@
-# DFS & BFS
+# Floyed
 
 ```cpp
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-#define maxNumber 100
+const int MAXN = 1001;
 
-struct node{
-	
-	int next,to,d;
-	
-};
+int dis[MAXN][MAXN],num,p1,p2,q;
 
-node map1[maxNumber];
-int fa[maxNumber],head[maxNumber],vi[maxNumber],n,m,u,g,d,mapAmount;
-
-void add(int from,int to,int d)
+void Floyd()
 {
 	
-	map1[++mapAmount].next = head[from];
-	map1[mapAmount].to = to;
-	map1[mapAmount].d = d;
-	head[from] = mapAmount;
-	
-}
-
-queue <int> q;
-
-void bfs(int s)
-{
-	
-	cout<<s<<" ";
-	
-    int i;
-    for(int i = head[s];i != 0;i = map1[i].next)
-    {
-    	
-    	q.push(map1[i].to);
-    	
-    }
-    	
-    if(!q.empty())
-    {
- 
-    	 i = q.front();
-         q.pop();
-         bfs(i);
-         
-    }
-	
-}
-
-void dfs(int s)
-{
-	cout<<s<<" ";
-	
-	if(vi[s] != 1)
+	for(int k = 1;k <= num;++k)
 	{
 		
-		for(int i = head[s];i!=0;i = map1[i].next)
-        {
-        	
-           vi[s]=1;
-           dfs(map1[i].to);
-           
-        }
-        
+		for(int i = 1;i <= num;++i)
+		{
+			
+			for(int j = 1;j <= num;++j)
+			{
+				
+				if(dis[i][j] > dis[i][k] + dis[k][j])
+				{
+					
+					dis[i][j] = dis[i][k] + dis[k][j];
+					
+				}
+				
+			}
+			
+		}
+		
 	}
 	
 }
@@ -74,52 +39,33 @@ void dfs(int s)
 int main()
 {
 	
-	int n;
-	cin>>n;
+	cin>>num;
 	
-	int fr;
+	memset(dis,0x7fffffff,sizeof(dis));
 	
-	for(int i = 1;i <= n;++i)
+	for(int i = 1;i <= num;++i)
 	{
 		
-		scanf("%d %d %d",&u,&g,&d);
-		add(u,g,d);
-		
-		if(i == 1){
-			
-			fr = u;	
-			
-		}
+		scanf("%d %d %d",&p1,&p2,&q);
+		dis[p1][p2] = q;
+		dis[p2][p1] = q;
 		
 	}
 	
-	bool select1 = false;
+	Floyd();
 	
-	while(!select1)
+	for(int i = 1;i <= num;++i)
 	{
 		
-		cout<<"1. BFS"<<endl<<"2. DFS"<<endl<<"Input:";
-		int mode1;
-		cin>>mode1;
-	
-		switch(mode1){
-		
-			case 1:
-				bfs(fr);
-				select1 = true;
-				break;
-			case 2:
-				dfs(fr);
-				select1 = true;
-				break;
-			default:
-				cout<<"ErrorMode! Retry!"<<endl;
-				break;
-		
-		}	
+		for(int j = 1;j <= num;++j)
+			if(i != j && dis[i][j] != 0x7fffffff)
+				cout<<i<<"-"<<j<<":"<<dis[i][j]<<endl;
 		
 	}
+	
+	return 0;
 	
 }
+
 ```
 
